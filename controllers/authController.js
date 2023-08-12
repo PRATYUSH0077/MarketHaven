@@ -88,3 +88,14 @@ export const loginController = async (req, res) => {
         })
     }
 }
+
+
+export const testController = (req, res) => {
+    try {
+        // res.send('protected routes called');
+        console.log('protected routes');
+    } catch (err) {
+        console.log(err);
+        res.send({ err });
+    }
+}
