@@ -10,10 +10,11 @@ import { useAuth } from '../../context/auth';
 const initalState = {
     "email": '',
     "password": '',
+    "secretKey": '',
 }
 
 
-const Login = () => {
+const ForgotPassword = () => {
     const [form, setForm] = useState(initalState);
     const navigate = useNavigate();
     const [auth, setAuth] = useAuth();
@@ -22,26 +23,28 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/login`, {
+            const response = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/forgot-password`, {
                 'email': form.email,
+                'secretKey': form.secretKey,
                 'password': form.password,
             })
             console.log(response)
             if (response.data.success) {
                 toast.success(response.data.message);
-                setAuth({
-                    ...auth,
-                    user: response.data.user,
-                    token: response.data.token
-                })
-                localStorage.setItem('auth', JSON.stringify(response.data));
-                navigate(location.state || '/');
+                // setAuth({
+                //     ...auth,
+
+                //     user: response.data.user,
+                //     token: response.data.token
+                // })
+                // localStorage.setItem('auth', JSON.stringify(response.data));
+                navigate('/login');
 
             } else {
                 toast.error('got an error', response.data.message);
             }
         } catch (err) {
-            console.log('erro in registration: ', err);
+            console.log('error in forgot password: ', err);
             toast.error('Something Went Wrong, Please try again');
         }
     }
@@ -50,7 +53,7 @@ const Login = () => {
         <Layout title={'Login'}>
             <div className='register'>
                 <form className='register-form' onSubmit={handleSubmit}>
-                    <h4>LOGIN HERE</h4>
+                    <h4>RESET PASSWORD</h4>
 
                     <div className="mb-3">
                         <input
@@ -66,21 +69,28 @@ const Login = () => {
 
                     <div className="mb-3">
                         <input
+                            type="text"
+                            value={form.secretKey}
+                            onChange={(e) => setForm((prevform) => ({ ...prevform, secretKey: e.target.value }))}
+                            className="form-control"
+                            id="exampleInputEmail1"
+                            aria-describedby="emailHelp"
+                            placeholder='Enter Your Secret Key'
+                            required />
+                    </div>
+
+                    <div className="mb-3">
+                        <input
                             type="password"
                             value={form.password}
                             onChange={(e) => setForm((prevform) => ({ ...prevform, password: e.target.value }))}
                             className="form-control"
                             id="exampleInputPassword1"
-                            placeholder='Enter Your Password'
+                            placeholder='Enter New Password'
                             required />
                     </div>
-                    <div className='mb-3 '>
-                        <button type="submit" className=" forgot-password"
-                            onClick={() => { navigate('/forgot-password') }}>
-                            Forgot Password
-                        </button>
-                    </div>
-                    <button type="submit" className="btn btn-primary">Login</button>
+
+                    <button type="submit" className="btn btn-primary">Reset</button>
 
 
                 </form>
@@ -92,4 +102,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default ForgotPassword

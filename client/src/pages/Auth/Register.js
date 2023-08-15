@@ -11,6 +11,7 @@ const initalState = {
     "email": '',
     "password": '',
     "phone": '',
+    "secretKey": '',
     "address": ''
 }
 
@@ -26,6 +27,7 @@ const Register = () => {
                 'email': form.email,
                 'password': form.password,
                 'phone': form.phone,
+                'secretKey': form.secretKey,
                 'address': form.address
             })
             console.log(response)
@@ -90,6 +92,16 @@ const Register = () => {
                             className="form-control"
                             id="exampleInputPassword1"
                             placeholder='Enter Your Password'
+                            required />
+                    </div>
+                    <div className="mb-3">
+                        <input
+                            type="text"
+                            value={form.secretKey}
+                            onChange={(e) => setForm((prevform) => ({ ...prevform, secretKey: e.target.value }))}
+                            className="form-control"
+                            id="exampleInputsecretKey1"
+                            placeholder='Enter A Secret_key for Your Account'
                             required />
                     </div>
                     <div className="mb-3">

@@ -11,10 +11,11 @@
 .register-form {
     background-image: linear-gradient(to bottom, #f7f7f7, #f9f9f9, #fbfbfb, #fdfdfd, #ffffff);
 
+    /* height: %; */
     min-width: 35%;
     box-shadow: rgba(88, 87, 87, 0.15) 0px 15px 25px, rgba(139, 134, 134, 0.05) 0px 5px 10px;
     border-radius: 20px;
-    padding: 15px;
+    padding: 5px 15px 5px 15px;
     text-align: center;
 
 }
@@ -27,9 +28,12 @@
 }
 
 .btn {
+    height: 5vh;
+    font-size: 2.5vh;
     min-width: 40%;
     background-color: black;
     color: whitesmoke;
+    padding: 1px
 }
 
 .btn:hover {
@@ -37,4 +41,13 @@
     background-color: rgb(29, 28, 28);
     color: white;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.forgot-password {
+    border: 0px;
+    border-radius: 0;
+    background-color: white;
+    color: black;
+    text-decoration: underline;
+    font-size: medium;
 }
