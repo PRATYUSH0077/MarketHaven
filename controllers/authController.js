@@ -7,14 +7,14 @@ export const registerController = async (req, res) => {
         const { name, email, password, phone, address } = req.body;
         // validating if all field present
         if (!name || !email || !password || !phone || !address)
-            return res.send({ error: 'ALL FIELDS ARE REQUIRED' });
+            return res.send({ message: 'ALL FIELDS ARE REQUIRED' });
 
         // checking for pre exiting user
         const user_present = await userModel.findOne({ email: email });
 
         if (user_present) {
             return res.status(200).send({
-                success: true,
+                success: false,
                 message: 'Already registered , please Proceed to Login'
             })
         }
@@ -70,6 +70,7 @@ export const loginController = async (req, res) => {
             expiresIn: '1d'
         });
         res.status(200).send({
+            success: true,
             user: {
                 name: user.name,
                 email: user.email,

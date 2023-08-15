@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import ConnectDB from './config/db.js'
 import colors from 'colors';
 import authRoutes from './routes/authRoutes.js'
+import cors from 'cors'
 
 
 
@@ -16,6 +17,7 @@ ConnectDB();
 const app = express();
 
 //middlewares
+app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'))
 

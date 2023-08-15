@@ -1,0 +1,40 @@
+.register {
+    background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 74vh;
+    /* border: 1px solid black; */
+}
+
+.register-form {
+    background-image: linear-gradient(to bottom, #f7f7f7, #f9f9f9, #fbfbfb, #fdfdfd, #ffffff);
+
+    min-width: 35%;
+    box-shadow: rgba(88, 87, 87, 0.15) 0px 15px 25px, rgba(139, 134, 134, 0.05) 0px 5px 10px;
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center;
+
+}
+
+.form-control {
+    border: none;
+    border-bottom: 1px solid black;
+    border-radius: 0px;
+    background-image: linear-gradient(to bottom, #f7f7f7, #f9f9f9, #fbfbfb, #fdfdfd, #ffffff);
+}
+
+.btn {
+    min-width: 40%;
+    background-color: black;
+    color: whitesmoke;
+}
+
+.btn:hover {
+    min-width: 40%;
+    background-color: rgb(29, 28, 28);
+    color: white;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
