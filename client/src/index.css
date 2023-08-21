@@ -47,6 +47,8 @@
   background-color: rgb(6 6 6 / 87%);
   color: white;
   min-height: 8vh;
+  width: 100%;
+  /* border: 1px solid red; */
 }
 
 .footer a {

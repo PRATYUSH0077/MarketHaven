@@ -17,8 +17,6 @@ const initalState = {
 const ForgotPassword = () => {
     const [form, setForm] = useState(initalState);
     const navigate = useNavigate();
-    const [auth, setAuth] = useAuth();
-    const location = useLocation();
 
     const handleSubmit = async (e) => {
         e.preventDefault();

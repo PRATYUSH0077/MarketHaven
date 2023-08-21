@@ -14,6 +14,13 @@ import Login from './pages/Auth/Login';
 import Dashboard from './pages/user/Dashboard';
 import PrivateRoute from './components/Routes/Private';
 import ForgotPassword from './pages/Auth/ForgotPassword';
+import AdminRoute from './components/Routes/Admin';
+import AdminDashboard from './pages/Admin/AdminDashboard';
+import CreateCateogary from './pages/Admin/CreateCateogary';
+import CreateProduct from './pages/Admin/CreateProduct';
+import Users from './pages/Admin/Users';
+import Orders from './pages/user/Orders';
+import UserProfile from './pages/user/UserProfile';
 
 
 
@@ -32,7 +39,15 @@ function App() {
         <Route path='/login' element={<Login />}></Route>
         <Route path='/forgot-password' element={<ForgotPassword />}></Route>
         <Route path='/dashboard' element={<PrivateRoute />}>
-          <Route path='' element={<Dashboard />}></Route>
+          <Route path='user' element={<Dashboard />}></Route>
+          <Route path='user/orders' element={<Orders />}></Route>
+          <Route path='user/profile' element={<UserProfile />}></Route>
+        </Route>
+        <Route path='/dashboard' element={<AdminRoute />}>
+          <Route path='admin' element={<AdminDashboard />}></Route>
+          <Route path='admin/create-product' element={<CreateProduct />}></Route>
+          <Route path='admin/create-cateogary' element={<CreateCateogary />}></Route>
+          <Route path='admin/user' element={<Users />}></Route>
         </Route>
 
 

@@ -2,9 +2,9 @@ import React from 'react'
 import Layout from '../../components/layout/Layout'
 import UserMenu from '../../components/layout/UserMenu'
 
-const Dashboard = () => {
+const Orders = () => {
     return (
-        <Layout title={'Dashboard'}>
+        <Layout title={'Your orders'}>
             <div className='container-fluid m-3 p-3'>
                 <div className='row'>
                     <div className='col-3'>
@@ -12,7 +12,7 @@ const Dashboard = () => {
                     </div>
                     <div className='col-9'>
                         <div className='card text-center'>
-                            <h1> User Dashboard</h1>
+                            <h1> Order page</h1>
                         </div>
                     </div>
                 </div>
@@ -21,4 +21,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default Orders

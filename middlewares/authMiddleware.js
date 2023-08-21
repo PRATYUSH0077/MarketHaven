@@ -5,6 +5,7 @@ import userModel from '../models/userModel.js';
 
 export const RequireSignIn = async (req, res, next) => {
     try {
+        console.log('require signIn done')
         const decode = JWT.verify(req.headers.authorization, process.env.JWT_SECRET);
         req.user = decode;
         next();
@@ -18,16 +19,20 @@ export const RequireSignIn = async (req, res, next) => {
 export const isAdmin = async (req, res, next) => {
     try {
         const user = await userModel.findById(req.user._id);
+        // console.log('Found the user');
         if (user.role !== 1) {
+            // console.log(' not in here');
             res.status(200).send({
                 success: false,
                 message: 'UnAuthorized Access'
             })
         } else {
-            res.status(200).send({
-                success: true,
-                message: 'Access granted'
-            })
+            // console.log('in here');
+            // res.status(200).send({
+            //     success: true,
+            //     message: 'Access granted'
+            // })
+            console.log('isAdmin Access granted');
             next();
         }
     } catch (err) {

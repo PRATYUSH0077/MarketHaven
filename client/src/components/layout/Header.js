@@ -44,13 +44,29 @@ const Header = () => {
                                         </>
                                     ) :
                                     (
-                                        <li className="nav-item">
-                                            <NavLink
-                                                onClick={() => { handleLogout() }}
-                                                to="/login"
-                                                className="nav-link" >
-                                                Logout</NavLink>
-                                        </li>
+                                        <div className="nav-item dropdown">
+                                            <button className="nav-link dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                {auth?.user?.name}
+                                            </button>
+                                            <ul className="dropdown-menu">
+                                                <li className="nav-item">
+                                                    <NavLink
+                                                        onClick={() => { handleLogout() }}
+                                                        to="/login"
+                                                        className="nav-link" >
+                                                        Logout</NavLink>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <NavLink
+                                                        to={`/dashboard/${auth?.user?.role === 1 ? "admin" : "user"
+                                                            }`}
+                                                        className="nav-link" >
+                                                        Dashboard</NavLink>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+
 
                                     )
                             }
