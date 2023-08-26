@@ -31,14 +31,13 @@
     height: 5vh;
     font-size: 2.5vh;
     min-width: 40%;
-    background-color: black;
     color: whitesmoke;
     padding: 1px
 }
 
 .btn:hover {
     min-width: 40%;
-    background-color: rgb(29, 28, 28);
+    /* background-color: rgb(29, 28, 28); */
     color: white;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }

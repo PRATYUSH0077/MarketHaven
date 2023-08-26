@@ -8,6 +8,7 @@ import Spinner from "../Spinner";
 
 
 const AdminRoute = () => {
+    // console.log('in admin routes');
     const [ok, setOk] = useState(false);
     const [auth, setAuth] = useAuth();
 
@@ -20,8 +21,8 @@ const AdminRoute = () => {
                 //     }
                 // }
             )
-            console.log('response ok status: ', response);
-            if (response.data.success) {
+            // console.log('response ok status: ', response);
+            if (response.data.ok) {
                 setOk(true);
             } else {
                 setOk(false);
@@ -29,6 +30,7 @@ const AdminRoute = () => {
         }
         if (auth?.token) authCheck();
     }, [auth?.token])
+    // console.log('ok status: ', ok);
 
     return ok ? <Outlet /> : <Spinner path="/" />
 

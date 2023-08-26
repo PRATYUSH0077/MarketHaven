@@ -5,7 +5,7 @@ import { useAuth } from '../context/auth'
 function Home() {
     const [auth, setAuth] = useAuth();
     return (
-        <Layout title={'Bumper Offers'}>
+        <Layout title={'All Products-best offer'}>
             <h1>Home Page</h1>
             <pre>{JSON.stringify(auth, null, 1)}</pre>
         </Layout>

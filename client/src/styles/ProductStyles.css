@@ -1,0 +1,9 @@
+.product-card {
+    text-decoration: none;
+    color: blacks;
+}
+
+.card {
+    box-shadow: rgba(0, 0, 0, 0.48) 2px 3px 8px !important;
+    /* border: 1px solid black; */
+}

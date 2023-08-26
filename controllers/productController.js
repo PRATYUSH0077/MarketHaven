@@ -9,7 +9,7 @@ export const createProductController = async (req, res) => {
         const { name, description, price, cateogary, quantity, shipping } = req.fields;
         const { photo } = req.files;
 
-        if (!name || !description || !price || !cateogary || !quantity || (photo && photo.size > 1000000)) {
+        if (!name || !description || !price || !cateogary || !quantity || !shipping || (photo && photo.size > 1000000)) {
             return res.status(500).send({
                 success: false,
                 error: 'All fields required and Photo size less then 1Mb'
@@ -86,6 +86,7 @@ export const getSingleProductController = async (req, res) => {
         })
     }
 }
+
 
 export const productPhotoController = async (req, res) => {
     try {
