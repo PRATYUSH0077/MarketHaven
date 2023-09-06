@@ -23,6 +23,10 @@ import Orders from './pages/user/Orders';
 import UserProfile from './pages/user/UserProfile';
 import Products from './pages/Admin/Products';
 import UpdateProduct from './pages/Admin/UpdateProduct';
+import Serach from './pages/Serach';
+import ProductDetail from './pages/ProductDetail';
+import Categories from './pages/Categories';
+import CategoryProduct from './pages/CategoryProduct';
 
 
 
@@ -35,6 +39,11 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/policy' element={<Policy />} />
+        <Route path='/search' element={<Serach />} />
+        <Route path='/cateogary' element={<Categories />} />
+        <Route path='/cateogary/:slug' element={<CategoryProduct />} />
+        <Route path='/product/:slug' element={<ProductDetail />} />
+
 
 
         {/* REGISTER,LOGIN AND PROTECTED ROUTES */}

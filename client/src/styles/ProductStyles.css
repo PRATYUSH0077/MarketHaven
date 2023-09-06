@@ -5,5 +5,8 @@
 
 .card {
     box-shadow: rgba(0, 0, 0, 0.48) 2px 3px 8px !important;
+    /* border: 1px solid red; */
+    /* margin-top: 10% !important; */
     /* border: 1px solid black; */
+
 }

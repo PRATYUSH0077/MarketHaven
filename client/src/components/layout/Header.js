@@ -3,9 +3,12 @@ import { NavLink, Link } from 'react-router-dom'
 import { FaShopify } from 'react-icons/fa'
 import { useAuth } from '../../context/auth'
 import { toast } from 'react-hot-toast'
+import SearchInput from '../Form/SearchInput'
+import useCateogary from '../../hooks/useCateogary'
 
 const Header = () => {
     const [auth, setAuth] = useAuth();
+    const category = useCateogary();
     const handleLogout = () => {
         setAuth({
             ...auth,
@@ -29,7 +32,20 @@ const Header = () => {
                                 <NavLink to="/" className="nav-link" >Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink to="/category" className="nav-link" >Category</NavLink>
+                                <li class="nav-item dropdown">
+                                    <Link class="nav-link dropdown-toggle" to={'/cateogary'} role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Category
+                                    </Link>
+                                    <ul class="dropdown-menu">
+                                        <li><Link class="dropdown-item" to={`/cateogary`}>All Categories</Link></li>
+                                        {
+                                            category.map((c) =>
+
+                                                <li><Link class="dropdown-item" to={`/cateogary/${c.slug}`}>{c.name}</Link></li>
+                                            )
+                                        }
+                                    </ul>
+                                </li>
                             </li>
                             {
                                 !auth.user ?
@@ -73,6 +89,7 @@ const Header = () => {
                             <li className="nav-item">
                                 <NavLink to="/cart" className="nav-link" >Cart(0)</NavLink>
                             </li>
+                            <SearchInput />
 
                         </ul>
 

@@ -38,18 +38,19 @@ const Products = () => {
                 </div>
                 <div className='col-9'>
                     <h1 className='text-center'>Product list here</h1>
-                    <div className='d-flex'>
+                    <div className='d-flex flex-wrap'>
                         {
                             products?.map((p) => (
                                 <Link
                                     to={`/dashboard/admin/update-product/${p.slug}`}
-                                    className='product-card'
+                                    className='product-card mt-3'
                                 >
                                     <div className="card m-3 p-2" style={{ width: '15em', height: '100%' }}>
                                         <img src={`${process.env.REACT_APP_API}/api/v1/product/photo/${p._id}`} className="card-img-top" alt="Product Photo" />
                                         <div className="card-body">
                                             <h5 className="card-title">{p.name}</h5>
-                                            <p className="card-text">{p.description}</p>
+                                            <p className="card-text">{p.description.substring(0, 30)}</p>
+                                            <p className="card-text">{p.price}</p>
 
                                         </div>
                                     </div>
